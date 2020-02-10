@@ -27,6 +27,12 @@ import Foundation
  */
 // Begin your work here...
 
+/// Finds the surface area of sphere
+/// - Parameter radius: radius of the circle
+/// - Returns: surface area of sphere
+func surfaceAreaOfSphere(radius: Double) -> Double {
+    return 4 * Double.pi * pow(radius, 2.0)
+}
 
 
 /*:
