@@ -30,7 +30,10 @@ import Foundation
 /// Finds the surface area of sphere
 /// - Parameter radius: radius of the circle
 /// - Returns: surface area of sphere
-func surfaceAreaOfSphere(radius: Double) -> Double {
+func surfaceAreaOfSphere(radius: Double) -> Double? {
+    guard radius>0 else{
+        return nil
+    }
     return 4 * Double.pi * pow(radius, 2.0)
 }
 
@@ -40,7 +43,10 @@ func surfaceAreaOfSphere(radius: Double) -> Double {
 /// - Parameter length: length of rectangular prism
 /// - Parameter width: width of rectangular prism
 /// - Returns: surface area of rectangular prism
-func surfaceAreaOfRectangularPrism(height:Double, length: Double, width: Double) -> Double{
+func surfaceAreaOfRectangularPrism(height:Double, length: Double, width: Double) -> Double?{
+    guard height > 0, length > 0, width > 0 else{
+        return nil
+    }
     return 2 * (height * length + height * width + length * width)
 }
 
@@ -48,24 +54,40 @@ func surfaceAreaOfRectangularPrism(height:Double, length: Double, width: Double)
 /// - Parameter base: base of triangle
 /// - Parameter height: height of triangle
 /// - Returns:area of triangle
-func areaOfTriangle(base: Double, height: Double) -> Double {
+func areaOfTriangle(base: Double, height: Double) -> Double? {
+    guard base > 0, height > 0 else{
+        return nil
+    }
     return 0.5*base*height
 }
 
+// find the area of triangle
+// b: 10, h: 5, area = 25
+areaOfTriangle(base: 10, height: 5)
+
+// b: -10, h: 5, area = nil
+areaOfTriangle(base: -10, height: 5)
 
 /// Finds the area of rectangle
 /// - Parameter length: length of rectangle
 /// - Parameter width: width of rectangle
 /// - Returns:area of ractangle
-func areaOfRectangle (length: Double, width: Double) -> Double {
+func areaOfRectangle(length: Double, width: Double) -> Double? {
+    guard length > 0, width > 0 else {
+        return nil
+    }
     return length * width
+
 }
 
 /// Finds the volume of cylinder
 /// - Parameter radius: radius of base circle
 /// - Parameter height: height of cylinder
 /// - Returns:volume of cylinder
-func volumeOfCylider(radius:Double, height: Double) -> Double{
+func volumeOfCylider(radius:Double, height: Double) -> Double? {
+    guard radius > 0, height > 0 else{
+        return nil
+    }
     return Double.pi * height * pow(radius, 2.0)
 }
 
@@ -74,7 +96,10 @@ func volumeOfCylider(radius:Double, height: Double) -> Double{
 /// - Parameter base: length of base rectangle
 /// - Parameter height: height of pyramid
 /// - Returns: volume of square-based-pyramid
-func volumeOfSquareBasedPyramid (base: Double, height: Double) -> Double {
+func volumeOfSquareBasedPyramid (base: Double, height: Double) -> Double? {
+    guard base > 0, height > 0 else{
+        return nil
+    }
     return pow(base, 2.0) * height / 3
 }
 
@@ -82,7 +107,10 @@ func volumeOfSquareBasedPyramid (base: Double, height: Double) -> Double {
 /// Finds the circumfrence of circle
 /// - Parameter radius: radius of circle
 /// - Returns: circumfrence of circle
-func circumfrenceOfCircle (radius: Double) -> Double{
+func circumfrenceOfCircle (radius: Double) -> Double? {
+    guard radius > 0 else{
+        return nil
+    }
     return 2 * Double.pi * radius
 }
 
@@ -90,10 +118,15 @@ func circumfrenceOfCircle (radius: Double) -> Double{
 /// - Parameter length: length of rectangle
 /// - Parameter Width: width of rectangle
 /// - Returns: perimeter of rectangle
-func perimeterOfRectangle(length: Double, Width: Double) -> Double {
+func perimeterOfRectangle(length: Double, Width: Double) -> Double? {
     return 2*(length + Width)
 }
 
+// Invoke and test the area of a rectangle function
+// l: 10, w: 2, area: 20
+areaOfRectangle(length: 10, width: 2)
+// l: -10, w: 2, area: nil
+areaOfRectangle(length: -10, width: 2)
 
 /*:
  [Previous: Writing Documentation](@previous) | Page 7
